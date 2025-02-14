@@ -61,11 +61,22 @@
 
     <script>
         function startBot() {
-            window.location.href = 'https://t.me/antcard_bot'; // Открывает Telegram-бота
-            setTimeout(() => {
-                window.location.href = window.location.origin; // Возвращает на сайт через 5 секунд
-            }, 5000);
+            const currentPage = window.location.href; // Запоминаем текущую страницу
+            sessionStorage.setItem('returnUrl', currentPage); // Сохраняем в sessionStorage
+            
+            window.location.href = 'https://t.me/antcard_bot'; // Открываем Telegram-бота
         }
+
+        // Проверяем, нужно ли вернуть пользователя
+        window.onload = function() {
+            const returnUrl = sessionStorage.getItem('returnUrl');
+            if (returnUrl) {
+                sessionStorage.removeItem('returnUrl'); // Удаляем, чтобы не зациклилось
+                setTimeout(() => {
+                    window.location.href = returnUrl; // Возвращаем на сохраненную страницу
+                }, 5000);
+            }
+        };
     </script>
 </body>
 </html>
