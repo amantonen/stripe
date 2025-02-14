@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Стихотворные поздравления</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f8ff;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            font-size: 18px;
+            color: #555;
+            text-align: center;
+        }
+        .button-container {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .start-btn {
+            background-color: #4CAF50;
+        }
+        .start-btn:hover {
+            background-color: #45a049;
+        }
+        .donate-btn {
+            background-color: #0088cc;
+        }
+        .donate-btn:hover {
+            background-color: #0077b6;
+        }
+    </style>
+</head>
+<body>
+    <h1>Добро пожаловать!</h1>
+    <p>Создайте уникальное стихотворное поздравление для ваших близких!</p>
+
+    <div class="button-container">
+        <button class="start-btn" onclick="startBot()">Начать</button>
+        <button class="donate-btn" onclick="window.location.href='https://buy.stripe.com/test_7sI7tV7P5fi7b6g5kk'">Donate 💖</button>
+    </div>
+
+    <script>
+        function startBot() {
+            window.location.href = 'https://t.me/antcard_bot'; // Открывает Telegram-бота
+            setTimeout(() => {
+                window.location.href = window.location.origin; // Возвращает на сайт через 5 секунд
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
